@@ -1,6 +1,3 @@
-let humanScore = 0;
-let computerScore = 0;
-
 function getComputerChoice() {
   number = Math.random() * 3 + 1;
   number = Math.floor(number);
@@ -33,24 +30,57 @@ function getHumanChoice() {
       break;
   }
 }
+let humanScore = 0;
+let computerScore = 0;
 
-const humanSelection = getHumanChoice().toLowerCase();
-const computerSelection = getComputerChoice();
+function playGame() {
+  const humanSelection = getHumanChoice().toLowerCase();
+  const computerSelection = getComputerChoice();
 
-function playRound(humanChoice, computerChoice) {
-  if (humanChoice === computerChoice) {
-    return "Ничья! У компьютера " + computerChoice + ".";
-  } else if (
-    (humanChoice === "ножницы" && computerChoice === "камень") ||
-    (humanChoice === "бумага" && computerChoice === "ножницы") ||
-    (humanChoice === "камень" && computerChoice === "бумага")
-  ) {
-    computerScore += 1;
-    return "Вы, проиграли!!! У компьютера " + computerChoice + ".";
-  } else {
-    humanScore += 1
-    return "Вы, выиграли!!! У компьютера " + computerChoice + "."
+  function playRound(humanChoice, computerChoice) {
+    if (humanChoice === computerChoice) {
+      return "Ничья! У компьютера " + computerChoice + ".";
+    } else if (
+      (humanChoice === "ножницы" && computerChoice === "камень") ||
+      (humanChoice === "бумага" && computerChoice === "ножницы") ||
+      (humanChoice === "камень" && computerChoice === "бумага")
+    ) {
+      computerScore += 1;
+      return "Очко за компьютером!!! У компьютера " + computerChoice + ".";
+    } else {
+      humanScore += 1;
+      return "Очко за вами!!! У компьютера " + computerChoice + ".";
+    }
   }
+
+  alert(playRound(humanSelection, computerSelection));
 }
 
-alert(playRound(humanSelection, computerSelection))
+for (let index = 1; index < 6; index++) {
+  playGame();
+}
+if (humanScore > computerScore) {
+  alert(
+    "Поздравляю! Вы выиграли!!! Счет: " +
+      humanScore +
+      ":" +
+      computerScore +
+      ".", ""
+  );
+} else if (humanScore < computerScore) {
+  alert(
+    "Вы проиграли! Повезет в следующий раз. Счет: " +
+      humanScore +
+      ":" +
+      computerScore +
+      ".", ""
+  );
+} else {
+  alert(
+    "Ничья." +
+      humanScore +
+      ":" +
+      computerScore +
+      ".", ""
+  );
+}
