@@ -16,7 +16,7 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-  const humanChoice = +prompt("Ваш выбор: 1 - камень, 2 - ножицы, 3 - бумага");
+  // const humanChoice = +prompt("Ваш выбор: 1 - камень, 2 - ножицы, 3 - бумага");
   switch (humanChoice) {
     case 1:
       return "камень";
@@ -56,9 +56,9 @@ function playGame() {
   alert(playRound(humanSelection, computerSelection));
 }
 
-for (let index = 1; index < 6; index++) {
-  playGame();
-}
+// for (let index = 1; index < 6; index++) {
+playGame();
+// }
 if (humanScore > computerScore) {
   alert(
     "Поздравляю! Вы выиграли!!! Счет: " +
