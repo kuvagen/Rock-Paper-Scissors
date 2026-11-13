@@ -16,9 +16,10 @@ body {
     border-radius: 25px;
     height: 50vh;
     width: 50vw;
-    background-color: #efefef;
+    background-color: #ededed;
     align-items: flex-start;
     flex-direction: column;
+    border: 2px solid seagreen;
     
     
 }
@@ -47,8 +48,8 @@ button {
     height: 40px;
     font-size: 1.5rem;
     width: 60%;          /* Ширина кнопок от всего серого блока */
-    border-radius: 20px;
+    border-radius: 15px;
     background-color: lightblue;
-    border: none;
+    border: 1px solid salmon;
     cursor: pointer;
 }
