@@ -15,72 +15,41 @@ function getComputerChoice() {
   }
 }
 
-function getHumanChoice() {
-  // const humanChoice = +prompt("Ваш выбор: 1 - камень, 2 - ножицы, 3 - бумага");
-  switch (humanChoice) {
-    case 1:
-      return "камень";
-      break;
-    case 2:
-      return "ножницы";
-    case 3:
-      return "бумага";
-    default:
-      return "";
-      break;
-  }
-}
 let humanScore = 0;
 let computerScore = 0;
 
-function playGame() {
-  const humanSelection = getHumanChoice().toLowerCase();
-  const computerSelection = getComputerChoice();
+let humanSelection = "";
+let resultText = document.getElementById("result")
 
-  function playRound(humanChoice, computerChoice) {
-    if (humanChoice === computerChoice) {
-      return "Ничья! У компьютера " + computerChoice + ".";
-    } else if (
-      (humanChoice === "ножницы" && computerChoice === "камень") ||
-      (humanChoice === "бумага" && computerChoice === "ножницы") ||
-      (humanChoice === "камень" && computerChoice === "бумага")
-    ) {
-      computerScore += 1;
-      return "Очко за компьютером!!! У компьютера " + computerChoice + ".";
-    } else {
-      humanScore += 1;
-      return "Очко за вами!!! У компьютера " + computerChoice + ".";
-    }
+const buttons = document.querySelectorAll(".choice");
+
+
+
+for (const btn of buttons) {
+  btn.addEventListener("click", () => {
+    humanSelection = btn.textContent.toLocaleLowerCase();
+    const computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+  });
+}
+function playRound(humanChoice, computerChoice) {
+  if (humanChoice === computerChoice) {
+    resultText.textContent = "Ничья! У компьютера " + computerChoice + "."
+  } else if (
+    (humanChoice === "ножницы" && computerChoice === "камень") ||
+    (humanChoice === "бумага" && computerChoice === "ножницы") ||
+    (humanChoice === "камень" && computerChoice === "бумага")
+  ) {
+    computerScore += 1;
+    resultText.textContent = "Очко за компьютером!!! У компьютера " + computerChoice + "."
+  } else {
+    humanScore += 1;
+    resultText.textContent = "Очко за вами!!! У компьютера " + computerChoice + "."
   }
 
-  alert(playRound(humanSelection, computerSelection));
+  const scoreText = document.getElementById("score")
+  scoreText.textContent = humanScore + " : " + computerScore
+
 }
 
-// for (let index = 1; index < 6; index++) {
-playGame();
-// }
-if (humanScore > computerScore) {
-  alert(
-    "Поздравляю! Вы выиграли!!! Счет: " +
-      humanScore +
-      ":" +
-      computerScore +
-      ".", ""
-  );
-} else if (humanScore < computerScore) {
-  alert(
-    "Вы проиграли! Повезет в следующий раз. Счет: " +
-      humanScore +
-      ":" +
-      computerScore +
-      ".", ""
-  );
-} else {
-  alert(
-    "Ничья." +
-      humanScore +
-      ":" +
-      computerScore +
-      ".", ""
-  );
-}
+

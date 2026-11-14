@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     font-family: "Roboto";
+    box-sizing: border-box;
 }
 
 body {
@@ -19,16 +20,27 @@ body {
     background-color: #ededed;
     align-items: flex-start;
     flex-direction: column;
-    border: 2px solid seagreen;
+    border: 2px solid gray;
+    max-width: 450px;
     
     
 }
 
-h1, h2 {
+h1, p {
     width: 100%;
     text-align: center;
     margin: 20px 0;
 
+}
+
+#result {
+    font-size: medium;
+    padding: 10px;
+}
+
+#score {
+    margin-top: 20px;
+    font-size: xx-large;
 }
 
 h2 {
@@ -49,7 +61,11 @@ button {
     font-size: 1.5rem;
     width: 60%;          /* Ширина кнопок от всего серого блока */
     border-radius: 15px;
-    background-color: lightblue;
-    border: 1px solid salmon;
+    background-color: rgb(145, 194, 210);
+    border: 2px solid gray;
     cursor: pointer;
+}
+
+button:active {
+    background-color: rgb(100, 155, 175);
 }
