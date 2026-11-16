@@ -13,18 +13,9 @@ let humanSelection = "";
 let round = 0;
 
 function getComputerChoice() {
-  let number = Math.random() * 3 + 1;
-  number = Math.floor(number);
-  switch (number) {
-    case 1:
-      return "камень";
-    case 2:
-      return "ножницы";
-    case 3:
-      return "бумага";
-    default:
-      return "";
-  }
+  const choice = ["камень", "ножницы", "бумага"]
+  const randomIndex = Math.floor(Math.random() * choice.length)
+  return choice[randomIndex]
 }
 
 function playRound(humanChoice, computerChoice) {
