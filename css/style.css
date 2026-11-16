@@ -39,8 +39,8 @@ h1, p {
 }
 
 #score {
-    margin-top: 20px;
-    font-size: xx-large;
+    margin-top: 10px;
+    font-size: 26px;
 }
 
 h2 {
@@ -68,4 +68,15 @@ button {
 
 button:active {
     background-color: rgb(100, 155, 175);
+}
+
+.btn-reset {
+    align-self: center;
+    height: auto;
+    margin-bottom: 5px;
+    font-size: large;
+    text-align: center;
+    padding: 2px;
+    width: auto;
+    padding: 5px;
 }
